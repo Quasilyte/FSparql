@@ -1,3 +1,0 @@
-expr1 y && x expr1
-expr2 perfect expr2
-GOTCHA! 11

@@ -2,8 +2,9 @@ class DefLine
   def initialize line
     parts = /\((.*)\)\s?(.*)/.match line
 
-    @in, @out = parts[1], parts[2]
-    @swp = ''
+    @in = Conv.pattern_esc parts[1]
+    @out = parts[2]
+
     @slots = []
 
     compilate
