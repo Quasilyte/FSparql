@@ -1,0 +1,3 @@
+expr1 swap x && y expr1
+expr2 purfect expr2
+<<< 11

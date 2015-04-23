@@ -1,0 +1,4 @@
+(swap $x && $y) $y && $x
+(purfect) perfect
+(<<<) >>>
+(>>>) GOTCHA!
