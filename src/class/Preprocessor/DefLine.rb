@@ -2,9 +2,10 @@ class DefLine
   def initialize line
     parts = /\((.*)\)\s?(.*)/.match line
 
-    @in = Conv.pattern_esc parts[1]
-    @out = parts[2]
+    abort "invalid config line: `#{line}'" if parts.nil?
 
+    @in = Conv.pattern_esc(Conv.add_word_boundary parts[1])
+    @out = parts[2]
     @slots = []
 
     compilate
@@ -27,7 +28,7 @@ class DefLine
   def expand rawLine
     rawLine.gsub(@in) { |newLine|
       if (vals = @in.match newLine)
-        newLine = @out
+        newLine = @out.dup
 
         vals[1..-1].each_with_index { |val, idx|
           newLine.gsub! @slots[idx], val

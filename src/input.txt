@@ -1,9 +1,9 @@
-OBJ lang EXC PROP dbpedia-owl:ProgrammingLanguage {
+OBJ lang <- owl:ProgrammingLanguage {
   name <+ rdfs:label [LANG = "en"]
-  year <+ dbpprop:year
-  OBJ author EXC PROP dbpedia-owl:designer {
+  <+ @year
+  OBJ author <- owl:designer {
     name <+ rdfs:label [LANG = "en"]
-    depiction <+? foaf:depiction
+    <+? foaf:depiction
   }
 }
 LIMIT 128

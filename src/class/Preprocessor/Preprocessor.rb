@@ -4,7 +4,9 @@ class Preprocessor
     @defLines = []
 
     @buf.each_line { |line|
-      @defLines.push(DefLine.new line)
+      line = Conv.purge line
+
+      @defLines.push(DefLine.new (Conv.purge line)) unless line == ""
     }
   end
 
