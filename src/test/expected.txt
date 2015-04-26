@@ -6,7 +6,3 @@ OBJ lang EXC PROP dbpedia-owl:ProgrammingLanguage {
     depiction OPT INC PROP foaf:depiction
   }
 }
-
-top level =
-  OBJ $ [INC|EXC] PROP $ {context block}
-  $ {context block}

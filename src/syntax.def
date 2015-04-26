@@ -13,4 +13,7 @@
 (<-? $prefix:$prop) $prop OPT EXC PROP $prefix:$prop
 (<- $prefix:$prop) $prop EXC PROP $prefix:$prop
 
+($filter.$op $val) (IF $filter: $op($val))
+($filter.$op '$val') (IF $filter: $op('$val'))
+
 (owl) dbpedia-owl

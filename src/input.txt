@@ -1,9 +1,1 @@
-OBJ lang <- owl:ProgrammingLanguage {
-  name <+ rdfs:label [LANG = "en"]
-  <+ @year
-  OBJ author <- owl:designer {
-    name <+ rdfs:label [LANG = "en"]
-    <+? foaf:depiction
-  }
-}
-LIMIT 128
+OBJ foo INC VAL bar [LANG.EQ 'fd']

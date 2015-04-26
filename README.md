@@ -9,6 +9,9 @@ its implementation, the **FSparql TWiR**.<br>
 TWiR refers to "Translator written in Ruby".<br>
 TWiR is main and only existing implementation for FSparql.<br>
 <br>
+The TWiR is, well, not very performant, but it doesn't matter that much;<br>
+the goal is to introduce a language and some ideas.<br>
+<br>
 FSparql aims at simplicity and flexibility (F - flexible).<br>
 Following the Unix philosophy, TWiR divided into multiple parts:
   * preprocessor

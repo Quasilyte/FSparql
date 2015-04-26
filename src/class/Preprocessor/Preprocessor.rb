@@ -1,6 +1,6 @@
 class Preprocessor
   def initialize filename
-    @buf = IO.read(filename)
+    @buf = IO.read filename
     @defLines = []
 
     @buf.each_line { |line|
@@ -11,7 +11,7 @@ class Preprocessor
   end
 
   def run filename
-    @buf = IO.read(filename)
+    @buf = IO.read filename
     @buf << "\n" unless @buf[-1] == ?\n
 
     lineByline
