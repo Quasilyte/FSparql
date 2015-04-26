@@ -5,15 +5,10 @@ Flexible Sparql<br>
 ***but you can inject your own style right into the system with ease.***<br>
 ### About
 FSparql is a programming language and you are at a page which contains<br>
-its implementation, the **FSparql TWiR**.<br>
-TWiR refers to "Translator written in Ruby".<br>
-TWiR is main and only existing implementation for FSparql.<br>
-<br>
-The TWiR is, well, not very performant, but it doesn't matter that much;<br>
-the goal is to introduce a language and some ideas.<br>
+its implementation.
 <br>
 FSparql aims at simplicity and flexibility (F - flexible).<br>
-Following the Unix philosophy, TWiR divided into multiple parts:
+Following the Unix philosophy, toolkit divided into multiple parts:
   * preprocessor
   * translator (converts sources into valid Sparql)
   * sparql executor
