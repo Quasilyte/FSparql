@@ -22,6 +22,7 @@ The good part: you can use them separately.<br>
 <br>
 If you choose all 3 of them, `sh` scripts are there for your convinience.<br>
 <br>
+<img src="./img/three.png">
 ### Preprocessor
 Allows simple text substitution before invoking the translator.<br>
 Say, you sick of `PROP` and `EXC` or even `INC` short forms.<br>
