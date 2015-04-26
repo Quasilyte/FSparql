@@ -5,5 +5,5 @@ module State
   @@prop_ref = nil
 
   @@sym_table = {}
-  @@obj_arr = []
+  @@ast = []
 end

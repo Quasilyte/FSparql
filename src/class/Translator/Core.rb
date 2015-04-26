@@ -14,7 +14,7 @@ module Core
   def kw_obj prop
     @@obj_def = true
 
-    @@obj_arr << (@@obj_ref = prop.promote_to_obj)
+    @@ast << (@@obj_ref = prop.promote_to_obj)
   end
 
   def kw_prop sym

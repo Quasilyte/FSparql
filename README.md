@@ -58,17 +58,17 @@ OBJ lang EXC VAL dbpedia-owl:ProgrammingLanguage {
 ```
 Output for above:
 ```
-SELECT ?lang__name, ?lang__year, ?author__name, ?author__depiction {
+SELECT ?lang__name, ?lang__year, ?lang__author__name, ?lang__author__depiction {
   ?lang a dbpedia-owl:ProgrammingLanguage.
   ?lang rdfs:label ?lang__name.
   ?lang dbpprop:year ?lang__year.
-  ?lang dbpedia-owl:designer ?author.
-  ?author rdfs:label ?author__name.
+  ?lang dbpedia-owl:designer ?lang__author.
+  ?lang__author rdfs:label ?lang__author__name.
   OPTIONAL {
-    ?author foaf:depiction ?author__depiction.
+    ?author foaf:depiction ?lang__author__depiction.
   }
   FILTER(LANG(?lang__name) = "en")
-  FILTER(LANG(?author__name) = "en")
+  FILTER(LANG(?lang__author__name) = "en")
 }
 ```
 Translator receive command line arguments for LIMIT, OFFSET, etc.<br>

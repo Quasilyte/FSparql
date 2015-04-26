@@ -4,6 +4,6 @@ class Filter
   end
 
   def with_arg arg
-    "#{@fn}(#{arg})#{@relation}#{@rhs}"
+    "FILTER(#{@fn}(?#{arg}) #{@relation} '#{@rhs}')"
   end
 end

@@ -11,8 +11,6 @@ class Prop
     master = Obj.new @sym
     master.add_prop self
 
-    @sym = "#{@sym}__uri"
-
     master
   end
 

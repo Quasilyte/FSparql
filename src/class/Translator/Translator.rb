@@ -6,6 +6,8 @@ class Translator
 
     prepare_input
     eval_idsl
+
+    puts (Generator.new @@ast).body
   end
 
   def expand_val_stmt
@@ -39,11 +41,12 @@ class Translator
 
     puts "------------"
     # puts @@sym_table.inspect
-    dump
+    # Generator.run
+    # dump
   end
 
   def dump
-    @@obj_arr.each { |obj|
+    @@ast.each { |obj|
       puts "'#{obj.sym}': {"
       obj.props.each { |prop|
         puts "\t'#{prop.sym}': {"
