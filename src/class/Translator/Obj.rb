@@ -1,6 +1,7 @@
 class Obj
   def initialize sym
     @sym = sym
+    @parent = nil
     @props = []
   end
 
@@ -9,5 +10,5 @@ class Obj
   end
 
   attr_reader :sym, :props
-  attr_accessor :inc
+  attr_accessor :inc, :parent
 end

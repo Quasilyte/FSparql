@@ -14,10 +14,6 @@ class Prop
     master
   end
 
-  def add_filter expr
-    @filters << "#{expr.keys[0]}(?#{@sym})#{expr.values[0]}"
-  end
-
   attr_reader :sym
   attr_accessor :inc, :opt, :src, :filters
 end

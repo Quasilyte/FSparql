@@ -31,7 +31,11 @@ class Generator
     if prop.opt
       @opt_cols << "\t\t?#{obj.sym} #{prop.src} ?#{prop.sym}."
     elsif prop.sym == obj.sym
-      @fetch_cols << "\t?#{obj.sym} a #{prop.src}."
+      if obj.parent.nil?
+        @fetch_cols << "\t?#{obj.sym} a #{prop.src}."
+      else
+        @fetch_cols << "\t?#{obj.parent.sym} #{prop.src} ?#{prop.sym}."
+      end
     else
       @fetch_cols << "\t?#{obj.sym} #{prop.src} ?#{prop.sym}."
     end

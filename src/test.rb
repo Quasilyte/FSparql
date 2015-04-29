@@ -1,4 +1,4 @@
-require './bootstrap'
+require './inc'
 
 # preprocessor = Preprocessor.new './syntax.def'
 # preprocessor.run './input.txt'

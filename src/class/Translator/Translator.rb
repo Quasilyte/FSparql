@@ -32,34 +32,11 @@ class Translator
     insert_semicolons
     escape_idsl_kws
 
-    puts @buf
+    # puts @buf
     puts '-----------------------------'
   end
 
   def eval_idsl
     eval @buf
-
-    puts "------------"
-    # puts @@sym_table.inspect
-    # Generator.run
-    # dump
-  end
-
-  def dump
-    @@ast.each { |obj|
-      puts "'#{obj.sym}': {"
-      obj.props.each { |prop|
-        puts "\t'#{prop.sym}': {"
-        puts "\t\t'inc': #{prop.inc}"
-        puts "\t\t'src': #{prop.src}"
-        puts "\t\t'opt': #{prop.opt}"
-        prop.filters.each { |f|
-          puts "\t\t[#{f.with_arg prop.sym}]"
-        }
-        puts "\t}"
-      }
-      puts '}'
-    }
-    # puts @@obj_arr.inspect
   end
 end
