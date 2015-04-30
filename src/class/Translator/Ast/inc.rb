@@ -1,0 +1,5 @@
+require_relative './Attr'
+require_relative './Prop'
+require_relative './Uri'
+require_relative './GlobalUri'
+require_relative './NestedUri'

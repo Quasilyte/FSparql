@@ -7,7 +7,8 @@ class Translator
     prepare_input
     eval_idsl
 
-    puts (Generator.new @@ast).body
+    Generator.new @@ast
+    # puts (Generator.new @@ast).body
   end
 
   def expand_val_stmt
@@ -32,7 +33,7 @@ class Translator
     insert_semicolons
     escape_idsl_kws
 
-    # puts @buf
+    puts @buf
     puts '-----------------------------'
   end
 

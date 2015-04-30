@@ -1,10 +1,8 @@
-class Prop
-  def initialize sym
-    @inc = true
-    @opt = false
+class Attr
+  def initialize sym, dest
     @sym = sym
     @src = ''
-    @filters = []
+    @dest = dest
   end
 
   def promote_to_obj
@@ -14,6 +12,10 @@ class Prop
     master
   end
 
+  def with_sym sym
+    "\t?#{sym} #{@src} ?#{@sym}."
+  end
+
   attr_reader :sym
-  attr_accessor :inc, :opt, :src, :filters
+  attr_accessor :inc, :src, :dest
 end

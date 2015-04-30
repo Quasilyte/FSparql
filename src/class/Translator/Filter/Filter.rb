@@ -3,7 +3,7 @@ class Filter
     @fn, @relation, @rhs = fn, relation, rhs
   end
 
-  def with_arg arg
-    "FILTER(#{@fn}(?#{arg}) #{@relation} '#{@rhs}')"
+  def apply_to sym
+    "FILTER(#{@fn}(?#{sym}) #{@relation} '#{@rhs}')"
   end
 end
