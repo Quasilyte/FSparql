@@ -1,14 +1,19 @@
+# Provides entry point for unit translation (Translator#run method).
 class Translator
   include Core
+  include Argv
 
+  # Invoke translation on the text from the file.
   def run filename
+    parse_args
+
     @buf = IO.read filename
 
     prepare_input
     eval_idsl
 
-    Generator.new @@ast
-    # puts (Generator.new @@ast).body
+    # Result is written to stdout, can be easily redirected by user.
+    puts (Generator.new).run
   end
 
   def expand_val_stmt
@@ -28,13 +33,15 @@ class Translator
     }
   end
 
+  # Make a valid idsl from the input buffer.
   def prepare_input
     expand_val_stmt
     insert_semicolons
     escape_idsl_kws
 
-    puts @buf
-    puts '-----------------------------'
+    if @@flags['debug']
+      puts @buf
+    end
   end
 
   def eval_idsl
