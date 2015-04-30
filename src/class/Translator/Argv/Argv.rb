@@ -4,10 +4,12 @@ module Argv
   def parse_args
     debug_flag = Flag.new 'debug'
     limit_flag = Flag.new 'limit', /\d+/
+    offset_flag = Flag.new 'offset', /\d+/
 
     expected_flags = {
       '-d' => debug_flag, '--debug' => debug_flag,
-      '-l' => limit_flag, '--limit' => limit_flag
+      '-l' => limit_flag, '--limit' => limit_flag,
+      '-o' => offset_flag, '--offset' => offset_flag
     }
 
     match_against_args expected_flags

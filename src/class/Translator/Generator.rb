@@ -2,6 +2,10 @@ class Generator
   include Query
   include Argv
 
+  def initialize
+    @body = ''
+  end
+
   def run
     generate_body
   end
@@ -30,18 +34,30 @@ private
     "#{filters_s}}"
   end
 
+  def append_from_query
+    @body << select_clause
+    @body << fetch_cols_as_s
+    @body << opt_cols_as_s
+    @body << filters_as_s
+  end
+
   def append_limit
     if @@flags['limit']
       @body << "\nLIMIT #{@@flags['limit']}"
     end
   end
 
-  def generate_body
-    @body = select_clause
-    @body << fetch_cols_as_s
-    @body << opt_cols_as_s
-    @body << filters_as_s
+  def append_offset
+    if @@flags['offset']
+      @body << "\nOFFSET #{@@flags['offset']}"
+    end
+  end
 
+  def generate_body
+    append_from_query
     append_limit
+    append_offset
+
+    @body
   end
 end
