@@ -3,7 +3,7 @@ OBJ lang EXC VAL dbpedia-owl:ProgrammingLanguage {
   PROP name INC VAL rdfs:label [@LANG == 'en']
   PROP year INC VAL dbpprop:year
 
-  OBJ author INC VAL dbpedia-owl:designer {
+  OBJ author EXC VAL dbpedia-owl:designer {
     PROP name INC VAL rdfs:label [@LANG == 'en']
     PROP depiction OPT INC VAL foaf:depiction
   }
