@@ -20,7 +20,7 @@ module Argv
       keyval = arg.split '='
       keyval[1] = true if keyval[1].nil?
 
-      if expected_flags.has_key? keyval[0]
+      if expected_flags.key? keyval[0]
         @@flags[expected_flags[keyval[0]].hash_key keyval] = keyval[1]
       end
     }

@@ -28,7 +28,7 @@ class Formatter
     return if keyval.k_empty?
 
     key = keyval.k_shift
-    proto[key] = (keyval.k_empty? ? keyval.val : {}) unless proto.has_key? key
+    proto[key] = (keyval.k_empty? ? keyval.val : {}) unless proto.key? key
 
     json_recur_walk keyval, proto[key]
   end
