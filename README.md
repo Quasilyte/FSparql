@@ -88,6 +88,7 @@ For above query we could get json like:
 }]
 ```
 But we propaby want something similar to:
+```
 [{
   "lang": {
     "name": "C",
