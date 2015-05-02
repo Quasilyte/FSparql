@@ -42,15 +42,16 @@ it does some input manipulations).<br>
 Example of valid input:
 ```
 # Raw FSparql. Pretty verbose.
+# This is commentary, should not be interpreted.
 OBJ lang EXC VAL dbpedia-owl:ProgrammingLanguage {
   PROP name INC VAL rdfs:label [@LANG == 'en']
   PROP year INC VAL dbpprop:year
-
   OBJ author EXC VAL dbpedia-owl:designer {
-    PROP name INC VAL rdfs:label [@LANG == "en"]
+    PROP name INC VAL rdfs:label [@LANG == 'en']
     PROP depiction OPT INC VAL foaf:depiction
   }
 }
+
 ```
 Output for above:
 ```
@@ -61,14 +62,14 @@ SELECT ?lang__name, ?lang__year, ?lang__author__name, ?lang__author__depiction {
   ?lang dbpedia-owl:designer ?lang__author.
   ?lang__author rdfs:label ?lang__author__name.
   OPTIONAL {
-    ?author foaf:depiction ?lang__author__depiction.
+    ?lang__author foaf:depiction ?lang__author__depiction.
   }
-  FILTER(LANG(?lang__name) = "en")
-  FILTER(LANG(?lang__author__name) = "en")
+  FILTER(LANG(?lang__name) = 'en')
+  FILTER(LANG(?lang__author__name) = 'en')
 }
 ```
 Translator receive command line arguments for LIMIT, OFFSET, etc.<br>
-Example: `fsparql --translator './file.query' --limit=100`<br>
+Example: `fsparql file1.query file2.query --limit=100 -offset=20 > res.json`<br>
 ### Sparql executor
 Executor connects with remote source, passes Sparql query<br>
 and transforms results.<br>
