@@ -6,9 +6,9 @@ class Preprocessor
     @defLines = []
 
     @buf.each_line { |line|
-      line = Conv.purge line
+      line = purge_line line
 
-      @defLines.push(DefLine.new (Conv.purge line)) unless line == ""
+      @defLines.push(DefLine.new line) unless line == ""
     }
   end
 
@@ -22,6 +22,10 @@ class Preprocessor
   end
 
 private
+
+  def purge_line line
+    (line.sub /\#.*/, '').strip
+  end
 
   def line_by_line
     @defLines.each { |defLine|

@@ -2,13 +2,19 @@ class DefLine
   def initialize line
     parts = /\((.*)\)\s?(.*)/.match line
 
-    abort "invalid config line: `#{line}'" if parts.nil?
+    abort "invalid config line: #{line}" if parts.nil?
 
-    @in = Conv.pattern_esc parts[1]
+    @in = regexp_build parts[1]
+
     @out = parts[2]
     @slots = []
 
     compilate
+  end
+
+  def regexp_build pattern
+    pattern.gsub!(/[\[\]\{\}\^\\\?\-\+\*\.\!\|\&\<\>]/) { |m| '\\' + m}
+    (pattern.include? ' ') ? pattern : '\b' + pattern + '\b'
   end
 
   def compilate
