@@ -70,4 +70,43 @@ SELECT ?lang__name, ?lang__year, ?lang__author__name, ?lang__author__depiction {
 Translator receive command line arguments for LIMIT, OFFSET, etc.<br>
 Example: `fsparql --translator './file.query' --limit=100`<br>
 ### Sparql executor
-@TODO: implement and describe translator
+Executor connects with remote source, passes Sparql query<br>
+and transforms results.<br>
+<br>
+For above query we could get json like:
+```
+[{
+  "lang__name": "C",
+  "lang__year": "1972",
+  "lang__author__name": "Dennis",
+  "lang__author__depiction": "Ritchie face!"
+}, {
+  "lang__name": "Go",
+  "lang__year": "2009",
+  "lang__author__name": "Rob",
+  "lang__author__depiction": "Pike face!"
+}]
+```
+But we propaby want something similar to:
+[{
+  "lang": {
+    "name": "C",
+    "year": "1972",
+    "author": {
+      "name": "Dennis",
+      "depiction": "Ritchie face!"
+    }
+  }
+}, {
+  "lang": {
+    "name": "Go",
+    "year": "2009",
+    "author": {
+      "name": "Rob",
+      "depiction": "Pike face!"
+    }
+  }
+}]
+```
+And executor provides 2-nd format for us.<br>
+So, it executes the valid Sparql and then modifies the response.<br>
