@@ -11,6 +11,7 @@ class Translator
   # Invoke translation on the text from the file.
   def run_s buf
     parse_args
+    query_reset
 
     @buf = buf
 

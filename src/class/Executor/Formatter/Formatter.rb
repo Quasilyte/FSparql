@@ -1,11 +1,9 @@
 class Formatter
   require 'json'
 
-  def initialize
-    @out = []
-  end
-
   def run json_s
+    # puts ">>>>#{json_s}<<<<"
+    @out = []
     @in = (JSON.parse json_s)['results']['bindings']
 
     @in.each { |json_hash|

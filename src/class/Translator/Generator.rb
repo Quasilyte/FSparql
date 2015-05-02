@@ -2,11 +2,9 @@ class Generator
   include Query
   include Argv
 
-  def initialize
-    @body = ''
-  end
-
   def run
+    @body = ''
+
     generate_body
   end
 

@@ -18,7 +18,7 @@ class Executor
   end
 
   def generate_url
-    url = @db_url
+    url = @db_url.dup
     url << '?default-graph-uri=http://dbpedia.org'
     url << '&query=' << @sparql
     url << @default_params

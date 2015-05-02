@@ -24,6 +24,18 @@ class FSparql
     @agents[agent_name]
   end
 
+  def preprocessor
+    @agents[:preprocessor]
+  end
+
+  def translator
+    @agents[:translator]
+  end
+
+  def executor
+    @agents[:executor]
+  end
+
   def preprocessor_run opts = {}
     set_agent :preprocessor
     run_agent opts
