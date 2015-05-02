@@ -88,7 +88,7 @@ For above query we could get json like:
   "lang__author__depiction": "Pike face!"
 }]
 ```
-But we propaby want something similar to:
+But we propably want something similar to:
 ```
 [{
   "lang": {
