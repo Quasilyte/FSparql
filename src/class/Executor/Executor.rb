@@ -2,12 +2,14 @@ class Executor
   require 'net/http'
 
   def initialize
+    @formatter = Formatter.new
+
     @db_url = 'http://dbpedia.org/sparql'
     @default_params = '&format=application/json&timeout=30000'
   end
 
-  def run filename
-    @buf = IO.read filename
+  def run sparql
+    @sparql = sparql
 
     inquiry_db
   end
@@ -15,23 +17,21 @@ class Executor
   def generate_url
     url = @db_url
     url << '?default-graph-uri=http://dbpedia.org'
-    url << '&query=' << @buf
+    url << '&query=' << @sparql
     url << @default_params
   end
 
-  def inquiry_db
-    # url = URI.parse URI::encode generate_url
-
-    # resp = Net::HTTP.get(url)
-    # puts resp
-    generate_json
+  def query_remote_exec
+    url = URI.parse URI::encode generate_url
+    Net::HTTP.get(url)
   end
 
-  def generate_json
-    (Formatter.new).run IO.read './resp.json'
-    # @in = (JSON.parse )['results']['bindings']
-    # @structure = @in[0].keys
-    # puts @structure
+  def inquiry_db
+    generate_json query_remote_exec
+  end
+
+  def generate_json resp
+    @formatter.run resp
   end
 end
 

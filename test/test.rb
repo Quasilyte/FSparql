@@ -9,8 +9,8 @@ require './inc'
 # translator = Translator.new
 # translator.run './plang1.query'
 
-# executor = Executor.new
-# executor.run './sparql.txt'
+executor = Executor.new
+executor.run './sparql.txt'
 
 # $map = {}
 

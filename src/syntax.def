@@ -1,19 +1,2 @@
-(<+ @$prop) $prop <+ dbpprop:$prop
-(<+? @$prop) $prop <+? dbpprop:$prop
-(<- @$prop) $prop <- dbpprop:$prop
-(<-? @$prop) $prop <-? dbpprop:$prop
-
-($prop <+?) $prop OPT INC PROP
-($prop <+) $prop INC PROP
-($prop <-?) $prop OPT EXC PROP
-($prop <-) $prop EXC PROP
-
-(<+? $prefix:$prop) $prop OPT INC PROP $prefix:$prop
-(<+ $prefix:$prop) $prop INC PROP $prefix:$prop
-(<-? $prefix:$prop) $prop OPT EXC PROP $prefix:$prop
-(<- $prefix:$prop) $prop EXC PROP $prefix:$prop
-
-($filter.$op $val) (IF $filter: $op($val))
-($filter.$op '$val') (IF $filter: $op('$val'))
-
+# Default FSparql preprocessor config file.
 (owl) dbpedia-owl

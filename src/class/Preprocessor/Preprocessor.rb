@@ -10,18 +10,22 @@ class Preprocessor
     }
   end
 
-  def run filename
-    @buf = IO.read filename
+  def run_s buf
+    @buf = buf
     @buf << "\n" unless @buf[-1] == ?\n
 
-    lineByline
+    line_by_line
 
-    puts @buf
+    @buf
+  end
+
+  def run_f filename
+    run_s IO.read filename
   end
 
 private
 
-  def lineByline
+  def line_by_line
     @defLines.each { |defLine|
       @buf.gsub!(/.*\n/) { |rawLine|
         defLine.expand rawLine

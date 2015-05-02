@@ -22,8 +22,6 @@ module Argv
 
       if expected_flags.has_key? keyval[0]
         @@flags[expected_flags[keyval[0]].hash_key keyval] = keyval[1]
-      else
-        abort "unresolved flag #{keyval[0]}"
       end
     }
   end
