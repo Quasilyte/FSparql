@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f '../src/misc/syetsone.rb' ]; then
+  ruby '../src/misc/syetsone.rb' $*
+else
+  ruby "$FSPARQL_HOME/src/misc/syetsone.rb" $*
+fi

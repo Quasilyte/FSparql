@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f '../src/misc/r2j-fetch.rb' ]; then
+  ruby '../src/misc/r2j-fetch.rb' $*
+else
+  ruby "$FSPARQL_HOME/src/misc/r2j-fetch.rb" $*
+fi

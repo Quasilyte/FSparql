@@ -6,11 +6,11 @@ class Translator
 
   def initialize
     @generator = Generator.new
+    parse_args
   end
 
   # Invoke translation on the text from the file.
   def run_s buf
-    parse_args
     query_reset
 
     @buf = buf

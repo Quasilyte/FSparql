@@ -1,8 +1,7 @@
 # A way to use default functionality.
 # This can be used as an example to build some better interface.
+# Warning: this script is useless without './inc.rb' included.
 class FSparql
-  require_relative './inc'
-
   def initialize syntax_cfg = './syntax.def'
     @agents = {
       #TODO: Preprocessor needs some ENV variable to locate syntax.def file.
