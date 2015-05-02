@@ -4,7 +4,7 @@ class DefLine
 
     abort "invalid config line: `#{line}'" if parts.nil?
 
-    @in = Conv.pattern_esc(Conv.add_word_boundary parts[1])
+    @in = Conv.pattern_esc parts[1]
     @out = parts[2]
     @slots = []
 

@@ -1,0 +1,20 @@
+# Default FSparql preprocessor config file.
+  (owl) dbpedia-owl
+
+# Expansion rules for INC/EXC operators with aliases for objects:
+  ($ident {<+?}) OBJ $ident OPT INC VAL
+  ($ident {<+}) OBJ $ident INC VAL
+  ($ident {<-?}) OBJ $ident OPT EXC VAL
+  ($ident {<-}) OBJ $ident EXC VAL
+
+# Expansion rules for INC/EXC operators with aliases for properties:
+  ($ident <+?) PROP $ident OPT INC VAL
+  ($ident <+) PROP $ident INC VAL
+  ($ident <-?) PROP $ident OPT EXC VAL
+  ($ident <-) PROP $ident EXC VAL
+
+# Expansion rules for INC/EXC operators without aliases for properties:
+  (<+? $prefix:$prop) PROP $prop OPT INC VAL $prefix:$prop
+  (<+ $prefix:$prop) PROP $prop INC VAL $prefix:$prop
+  (<-? $prefix:$prop) PROP $prop OPT EXC VAL $prefix:$prop
+  (<- $prefix:$prop) PROP $prop EXC VAL $prefix:$prop

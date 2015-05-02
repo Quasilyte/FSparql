@@ -1,0 +1,10 @@
+# This is commentary, should not be interpreted.
+lang {<-} owl:ProgrammingLanguage {
+  name <+ rdfs:label [@LANG == 'en']
+  <+ dbpprop:year
+
+  author {<-} owl:designer {
+    name <+ rdfs:label [@LANG == 'en']
+    <+? foaf:depiction
+  }
+}

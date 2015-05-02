@@ -1,19 +1,23 @@
 # Provides entry point for unit translation (Translator#run method).
 class Translator
+  include Agent
   include Core
   include Argv
 
+  def initialize
+    @generator = Generator.new
+  end
+
   # Invoke translation on the text from the file.
-  def run filename
+  def run_s buf
     parse_args
 
-    @buf = IO.read filename
+    @buf = buf
 
     prepare_input
     eval_idsl
 
-    # Result is written to stdout, can be easily redirected by user.
-    puts (Generator.new).run
+    @generator.run
   end
 
   def expand_val_stmt
@@ -39,7 +43,7 @@ class Translator
     insert_semicolons
     escape_idsl_kws
 
-    if @@flags['debug']
+    if @@flags[:debug]
       puts @buf
     end
   end

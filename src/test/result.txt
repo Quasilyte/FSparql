@@ -1,9 +1,0 @@
-OBJ lang EXC PROP dbpedia-owl:ProgrammingLanguage {
-  name INC PROP rdfs:label [LANG = "en"]
-  year INC PROP dbpprop:year
-  OBJ author EXC PROP dbpedia-owl:designer {
-    name INC PROP rdfs:label [LANG = "en"]
-    depiction OPT INC PROP foaf:depiction
-  }
-}
-LIMIT 128

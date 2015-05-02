@@ -1,0 +1,14 @@
+SELECT ?lang__name, ?lang__year, ?lang__author__name, ?lang__author__depiction {
+	?lang a dbpedia-owl:ProgrammingLanguage.
+	?lang rdfs:label ?lang__name.
+	?lang dbpprop:year ?lang__year.
+	?lang dbpedia-owl:designer ?lang__author.
+	?lang__author rdfs:label ?lang__author__name.
+	OPTIONAL {
+		?lang__author foaf:depiction ?lang__author__depiction.
+	}
+	FILTER(LANG(?lang__name) = 'en')
+	FILTER(LANG(?lang__author__name) = 'en')
+}
+LIMIT 3
+OFFSET 1

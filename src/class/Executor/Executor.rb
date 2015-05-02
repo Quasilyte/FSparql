@@ -1,15 +1,18 @@
+# This class is pretty raw and needs mighty programmer hand to re-write it.
 class Executor
+  include Agent
   require 'net/http'
 
   def initialize
     @formatter = Formatter.new
 
+    # For now, it is hardcoded.
     @db_url = 'http://dbpedia.org/sparql'
     @default_params = '&format=application/json&timeout=30000'
   end
 
-  def run sparql
-    @sparql = sparql
+  def run_s buf
+    @sparql = buf
 
     inquiry_db
   end

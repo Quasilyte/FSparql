@@ -1,4 +1,6 @@
 class Preprocessor
+  include Agent
+
   def initialize filename
     @buf = IO.read filename
     @defLines = []
@@ -17,10 +19,6 @@ class Preprocessor
     line_by_line
 
     @buf
-  end
-
-  def run_f filename
-    run_s IO.read filename
   end
 
 private

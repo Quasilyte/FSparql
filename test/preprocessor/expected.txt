@@ -1,7 +1,7 @@
-# Raw FSparql. Pretty verbose.
+# This is commentary, should not be interpreted.
 OBJ lang EXC VAL dbpedia-owl:ProgrammingLanguage {
   PROP name INC VAL rdfs:label [@LANG == 'en']
-  <+ dbpprop:year
+  PROP year INC VAL dbpprop:year
 
   OBJ author EXC VAL dbpedia-owl:designer {
     PROP name INC VAL rdfs:label [@LANG == 'en']

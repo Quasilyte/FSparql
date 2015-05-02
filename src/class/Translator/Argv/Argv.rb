@@ -1,6 +1,10 @@
 module Argv
   @@flags = {}
 
+  def merge_flags flags
+    @@flags.merge! flags
+  end
+
   def parse_args
     debug_flag = Flag.new 'debug'
     limit_flag = Flag.new 'limit', /\d+/
@@ -21,7 +25,7 @@ module Argv
       keyval[1] = true if keyval[1].nil?
 
       if expected_flags.key? keyval[0]
-        @@flags[expected_flags[keyval[0]].hash_key keyval] = keyval[1]
+        @@flags[(expected_flags[keyval[0]].hash_key keyval).to_sym] = keyval[1]
       end
     }
   end

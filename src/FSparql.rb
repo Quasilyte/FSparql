@@ -5,6 +5,7 @@ class FSparql
 
   def initialize syntax_cfg = './syntax.def'
     @agents = {
+      #TODO: Preprocessor needs some ENV variable to locate syntax.def file.
       preprocessor: (Preprocessor.new syntax_cfg),
       translator: Translator.new,
       executor: Executor.new
@@ -18,6 +19,7 @@ class FSparql
     @agent = @agents[agent_name]
   end
 
+  # Agent could be useful if user wishes to handle input/output by his own.
   def get_agent agent_name
     @agents[agent_name]
   end
@@ -29,6 +31,9 @@ class FSparql
 
   def translator_run opts = {}
     set_agent :translator
+
+    @agent.merge_flags opts[:flags] if opts.key? :flags
+
     run_agent opts
   end
 
@@ -55,15 +60,15 @@ class FSparql
     puts @agent.run_s STDIN.read
   end
 
-  def stdin2file io
-    IO.write (@agent.run_s STDIN.read), io[:o_filename]
+  def stdin2file args
+    IO.write (@agent.run_s STDIN.read), args[:o_filename]
   end
 
-  def file2stdout io
-    puts @agent.run_f io[:i_filename]
+  def file2stdout args
+    puts @agent.run_f args[:i_filename]
   end
 
-  def file2file io
-    IO.write io[:o_filename], (@agent.run_f io[:i_filename])
+  def file2file args
+    IO.write args[:o_filename], (@agent.run_f args[:i_filename])
   end
 end

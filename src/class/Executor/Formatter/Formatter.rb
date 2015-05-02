@@ -12,7 +12,7 @@ class Formatter
       collect_hash json_hash
     }
 
-    puts @out.to_json
+    @out.to_json
   end
 
   def collect_hash json_hash

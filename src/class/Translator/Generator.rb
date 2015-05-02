@@ -42,14 +42,14 @@ private
   end
 
   def append_limit
-    if @@flags['limit']
-      @body << "\nLIMIT #{@@flags['limit']}"
+    if @@flags[:limit]
+      @body << "\nLIMIT #{@@flags[:limit]}"
     end
   end
 
   def append_offset
-    if @@flags['offset']
-      @body << "\nOFFSET #{@@flags['offset']}"
+    if @@flags[:offset]
+      @body << "\nOFFSET #{@@flags[:offset]}"
     end
   end
 
