@@ -1,4 +1,6 @@
 # Default FSparql preprocessor config file.
+
+# This frequent source deserves an shorter alias.
   (owl) dbpedia-owl
 
 # Expansion rules for INC/EXC operators with aliases for objects:

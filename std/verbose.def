@@ -1,0 +1,9 @@
+# This config demonstrates another approach. It is making plain sparql
+# even more verbose, but maybe more readable.
+
+(OBJECT) OBJ
+(PROPERTY) PROP
+(EXCLUSIVE) EXC
+(INCLUSIVE) INC
+(OPTIONAL) OPT
+(VALUE) VAL
