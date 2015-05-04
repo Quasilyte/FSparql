@@ -14,7 +14,7 @@ class DefLine
 
   def regexp_build pattern
     pattern.gsub!(/[\(\)\[\]\{\}\^\\\?\-\+\*\.\!\|\&\<\>]/) { |m| '\\' + m}
-    (pattern[/[^\w\-]/]) ? pattern : '\b' + pattern + '\b'
+    pattern[/[^\w\-]/] ? pattern : '\b' + pattern + '\b'
   end
 
   def compilate
