@@ -11,7 +11,8 @@ class Generator
 private
 
   def select_clause
-    "SELECT #{@@inc_prop_syms.join(', ')} {\n"
+    distinct = @@flags[:distinct] ? 'DISTINCT ' : ''
+    "SELECT #{distinct}#{@@inc_prop_syms.join(', ')} {\n"
   end
 
   def fetch_cols_as_s

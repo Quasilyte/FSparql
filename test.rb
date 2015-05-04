@@ -1,3 +1,4 @@
+require './src/inc'
 require './src/FSparql'
 require './test/testkit'
 
