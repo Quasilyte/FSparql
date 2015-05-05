@@ -21,7 +21,7 @@ class Executor
 private
 
   def query_remote_exec query_s
-    Net::HTTP.get URI::parse URI::encode @url + query_s
+    Net::HTTP::get URI::parse URI::encode @url + query_s
   end
 
   def generate_json resp
