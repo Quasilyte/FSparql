@@ -2,7 +2,6 @@ class Formatter
   require 'json'
 
   def run json_s
-    # puts ">>>>#{json_s}<<<<"
     @out = []
     @in = (JSON.parse json_s)['results']['bindings']
 
@@ -12,6 +11,8 @@ class Formatter
 
     @out.to_json
   end
+
+private
 
   def collect_hash json_hash
     proto = {}

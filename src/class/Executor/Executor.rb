@@ -3,34 +3,25 @@ class Executor
   include Agent
   require 'net/http'
 
-  def initialize
+  def initialize timeout = 30000
+    @url = 'http://dbpedia.org/sparql?' + ([
+      'default-graph-uri=http://dbpedia.org',
+      'format=application/json',
+      "timeout=#{timeout}",
+      'query='
+    ].join '&')
+
     @formatter = Formatter.new
-
-    # For now, it is hardcoded.
-    @db_url = 'http://dbpedia.org/sparql'
-    @default_params = '&format=application/json&timeout=30000'
   end
 
-  def run_s buf
-    @sparql = buf
-
-    inquiry_db
+  def run_s query_s
+    generate_json query_remote_exec query_s
   end
 
-  def generate_url
-    url = @db_url.dup
-    url << '?default-graph-uri=http://dbpedia.org'
-    url << '&query=' << @sparql
-    url << @default_params
-  end
+private
 
-  def query_remote_exec
-    url = URI.parse URI::encode generate_url
-    Net::HTTP.get(url)
-  end
-
-  def inquiry_db
-    generate_json query_remote_exec
+  def query_remote_exec query_s
+    Net::HTTP.get URI::parse URI::encode @url + query_s
   end
 
   def generate_json resp
