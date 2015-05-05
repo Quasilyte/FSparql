@@ -1,4 +1,3 @@
-# This class is pretty raw and needs mighty programmer hand to re-write it.
 class Executor
   include Agent
   require 'net/http'
