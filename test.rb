@@ -8,7 +8,6 @@ launch_test 'preprocessor',
   i_filename: './test/in.fsparql',
   o_filename: './test/preprocessor/result.txt'
 
-
 launch_test 'translator',
   i_filename: './test/preprocessor/result.txt',
   o_filename: './test/translator/result.txt',

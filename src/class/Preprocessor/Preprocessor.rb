@@ -2,36 +2,22 @@ class Preprocessor
   include Agent
 
   def initialize filename
-    @buf = IO.read filename
-    @defLines = []
-
-    @buf.each_line { |line|
-      line = purge_line line
-
-      @defLines.push(DefLine.new line) unless line == ""
-    }
+    @ruleset = Ruleset.new filename
   end
 
   def run_s buf
-    @buf = buf
-    @buf << "\n" unless @buf[-1] == ?\n
-
-    line_by_line
-
-    @buf
+    apply_rules ((buf[-1] == ?\n) ? buf : buf << "\n")
   end
 
 private
 
-  def purge_line line
-    (line.sub /\#.*/, '').strip
-  end
-
-  def line_by_line
-    @defLines.each { |defLine|
-      @buf.gsub!(/.*\n/) { |rawLine|
-        defLine.expand rawLine
+  def apply_rules buf
+    @ruleset.each_rule { |rule|
+      buf.gsub!(/.*\n/) { |raw_line|
+        rule.apply raw_line
       }
     }
+
+    buf
   end
 end
