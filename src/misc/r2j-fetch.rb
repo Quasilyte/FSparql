@@ -2,10 +2,6 @@ require_relative './Bin'
 
 $executor = Executor.new
 
-if Bin.one_target?
-  puts $executor.run_f Bin.next_target
-else
-  Bin.each_input_filename { |filename|
-    puts ($executor.run_f filename) + "\n"
-  }
-end
+Bin.execute stdin: ->() { puts $executor.run_s STDIN.read },
+  one_f: ->(f) { puts $executor.run_f f },
+  multi_f: ->(f) { puts ($executor.run_f f) + "\n" }

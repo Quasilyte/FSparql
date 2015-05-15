@@ -10,11 +10,6 @@ end
 
 $preprocessor = Preprocessor.new config
 
-if Bin.one_target?
-  puts $preprocessor.run_f Bin.next_target
-else
-  Bin.each_input_filename { |filename|
-    puts ($preprocessor.run_f filename) + "##DELIMITER##"
-  }
-end
-
+Bin.execute stdin: ->() { puts $preprocessor.run_s STDIN.read },
+  one_f: ->(f) { puts $preprocessor.run_f f },
+  multi_f: ->(f) { puts ($preprocessor.run_f f) + "##DELIMITER##" }
