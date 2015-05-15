@@ -1,7 +1,12 @@
 require_relative './Bin'
 
 config = ARGV.detect { |e| e[/-s=|--syntax=/] }
-config = config.nil? ? './std/syntax.def' : (config.split '=')[1]
+
+if config.nil?
+  config = "#{ENV['FSPARQL_HOME']}/std/syntax.def"
+else
+  config = (config.split '=')[1]
+end
 
 $preprocessor = Preprocessor.new config
 
